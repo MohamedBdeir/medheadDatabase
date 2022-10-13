@@ -10,3 +10,4 @@ Les étapes d'installation de la base de donnée:
 6. Accéder à une instance de sqlcmd dans le conteneur docker en utilisant `docker exec -it <nom_du_conteneur> /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P <mot_de_passe_sql>` 
 7. Dans l'invite de commande qui se lance créer la base de données avec `Create database MEDHEAD` puis valider  l'aide de  `Go`
 8. Exécuter le script qui va créer les tables et les remplir avec les données `docker exec -it <nom_du_conteneur> /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P <mot_de_passe_sql> -i /scripts/data.sql`
+9. Récupérer l'addresse IP du conteneur crée dans le réseau avec `Docker inspect <nom_du_reseau>`
