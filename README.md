@@ -4,7 +4,7 @@ Les étapes d'installation de la base de donnée: <br>
 <ol>
   <li> Télécharger et installer Docker https://www.docker.com </li>
  <li> Récupérer l'image docker de Microsoft SQL Server en utilisant
-   <code>docker pull mcr.microsoft.com/mssql/serv</code> </li>
+   <code>docker pull mcr.microsoft.com/mssql/server:2022-latest</code> </li>
 <li> Créer un réseau docker qui va contenir les conteneurs de la base de données, la API et le front end en utilisant <code>docker network create —driver bridge <nom_du_reseau></code> </li>
 <li> Cloner ce dépôt git qui contient le script SQL des tables de et donées initiales de l'application <code>git pull https://github.com/MohamedBdeir/medheadDatabase.git</code> </li>
 <li> Dans le répertoire git récupéré, générer le conteneur docker à partir de l'image sql server. La commande requiert d'indiquer un mot de passe pour l'instance de SQL SERVER. Préciser le réseau, le numéro de port, le nom du conteneur et utiliser le répetoire courant comme volume partagé avec le conteneur sur le chemin /scripts. Il suffit de remplacer les valeurs dans la commande qui suit  
