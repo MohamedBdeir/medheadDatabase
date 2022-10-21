@@ -1,7 +1,6 @@
-
 USE [MEDHEAD]
 GO
-/****** Object:  Table [dbo].[account_type]    Script Date: 12/10/2022 20:08:28 ******/
+/****** Object:  Table [dbo].[account_type]    Script Date: 21/10/2022 10:44:25 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -15,7 +14,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[addresse]    Script Date: 12/10/2022 20:08:28 ******/
+/****** Object:  Table [dbo].[addresse]    Script Date: 21/10/2022 10:44:25 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -32,7 +31,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[app_authorization]    Script Date: 12/10/2022 20:08:28 ******/
+/****** Object:  Table [dbo].[app_authorization]    Script Date: 21/10/2022 10:44:25 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -46,7 +45,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[app_user]    Script Date: 12/10/2022 20:08:28 ******/
+/****** Object:  Table [dbo].[app_user]    Script Date: 21/10/2022 10:44:25 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -63,7 +62,7 @@ CREATE TABLE [dbo].[app_user](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[app_user_authorizations]    Script Date: 12/10/2022 20:08:28 ******/
+/****** Object:  Table [dbo].[app_user_authorizations]    Script Date: 21/10/2022 10:44:25 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -73,7 +72,7 @@ CREATE TABLE [dbo].[app_user_authorizations](
 	[authorizations_id] [bigint] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[groupe]    Script Date: 12/10/2022 20:08:28 ******/
+/****** Object:  Table [dbo].[groupe]    Script Date: 21/10/2022 10:44:25 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -87,7 +86,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[hopital]    Script Date: 12/10/2022 20:08:28 ******/
+/****** Object:  Table [dbo].[hopital]    Script Date: 21/10/2022 10:44:25 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -103,7 +102,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[hopital_specialites]    Script Date: 12/10/2022 20:08:28 ******/
+/****** Object:  Table [dbo].[hopital_specialites]    Script Date: 21/10/2022 10:44:25 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -113,7 +112,7 @@ CREATE TABLE [dbo].[hopital_specialites](
 	[specialites_id] [bigint] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[lit]    Script Date: 12/10/2022 20:08:28 ******/
+/****** Object:  Table [dbo].[lit]    Script Date: 21/10/2022 10:44:25 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -123,13 +122,14 @@ CREATE TABLE [dbo].[lit](
 	[hopital_id] [bigint] NULL,
 	[specid] [bigint] NULL,
 	[libre] [bit] NOT NULL,
+	[reserved] [bit] NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[lit_id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[lits]    Script Date: 12/10/2022 20:08:28 ******/
+/****** Object:  Table [dbo].[lits]    Script Date: 21/10/2022 10:44:25 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -145,7 +145,24 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[specialite]    Script Date: 12/10/2022 20:08:28 ******/
+/****** Object:  Table [dbo].[reservation]    Script Date: 21/10/2022 10:44:25 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[reservation](
+	[reservationid] [bigint] IDENTITY(1,1) NOT NULL,
+	[patient_name] [varchar](255) NOT NULL,
+	[hopital] [bigint] NOT NULL,
+	[lit] [bigint] NOT NULL,
+	[specialite] [bigint] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[reservationid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[specialite]    Script Date: 21/10/2022 10:44:25 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -196,19 +213,19 @@ SET IDENTITY_INSERT [dbo].[app_authorization] OFF
 GO
 SET IDENTITY_INSERT [dbo].[app_user] ON 
 GO
-INSERT [dbo].[app_user] ([id], [password], [username], [validated], [account_type_type_id]) VALUES (1, N'$2a$10$nl2s2dXI7msAlyedJi/gDOwKVgy48EcNNNCIt7VSNDAuibL3WYyQu', N'mohamad', 1, 1)
+INSERT [dbo].[app_user] ([id], [password], [username], [validated], [account_type_type_id]) VALUES (1, N'$2a$10$x6jnX5b89hKQR6Ylnvukaeo5FcRDm01UK4/m0MJuGrv3jcJ9OdX02', N'ADMIN', 1, 1)
 GO
-INSERT [dbo].[app_user] ([id], [password], [username], [validated], [account_type_type_id]) VALUES (38, N'$2a$10$Gug5fcxtpiRkkRBOJ92H/u6zA3cPUX2YSfU7eiOvIfO/KD4KpIXgK', N'AUBMC', 1, 2)
+INSERT [dbo].[app_user] ([id], [password], [username], [validated], [account_type_type_id]) VALUES (38, N'$2a$10$sjbCKebDe0YhEaBdZI7ALerODYGBuJeND7AkftEyqS6153r/c6jOC', N'AUBMC', 1, 2)
 GO
-INSERT [dbo].[app_user] ([id], [password], [username], [validated], [account_type_type_id]) VALUES (39, N'$2a$10$uHHJnbKzNZ/OfI8Ze06SsOa0tAY4/Nz643xQm/m34E3/7Qxs139Iu', N'RAUH', 1, 2)
+INSERT [dbo].[app_user] ([id], [password], [username], [validated], [account_type_type_id]) VALUES (39, N'$2a$10$ZnfobTqEuiR0C4dqkcvF.enAV8EaOFfxJIZ2tiJohrxpdPxm0zts.', N'RAUH', 1, 2)
 GO
-INSERT [dbo].[app_user] ([id], [password], [username], [validated], [account_type_type_id]) VALUES (40, N'$2a$10$z/7wF0wyNhKwWSkfEUHQv.i/y6tnoiyCOCQxKsaLz1FrRBF0emKl2', N'ZHUMC', 1, 2)
+INSERT [dbo].[app_user] ([id], [password], [username], [validated], [account_type_type_id]) VALUES (40, N'$2a$10$kH6KlWi5H0hM9COlgSp/MOUZvyoXJXND6ZPx43dGdFR7EJHrujM.y', N'ZHUMC', 1, 2)
 GO
-INSERT [dbo].[app_user] ([id], [password], [username], [validated], [account_type_type_id]) VALUES (41, N'$2a$10$7NVsokrpILdsjpJwBWz5tuVHEzXWmKr5vHthXs8VHPk2zo9MRqCAa', N'USJMC', 1, 2)
+INSERT [dbo].[app_user] ([id], [password], [username], [validated], [account_type_type_id]) VALUES (41, N'$2a$10$sl/Z1pyXWgsUndOfrtWP7Ooh1uEYFw.3BNzJ6Z9fRhU4IAHwz1unu', N'USJMC', 1, 2)
 GO
-INSERT [dbo].[app_user] ([id], [password], [username], [validated], [account_type_type_id]) VALUES (42, N'$2a$10$Shm3Szfhx1QV6gmi9ldLmexWDbppKyeAR8oxiHmq5SVKy95GcdvkW', N'Avicennes', 1, 2)
+INSERT [dbo].[app_user] ([id], [password], [username], [validated], [account_type_type_id]) VALUES (42, N'$2a$10$.hzUWhrvxdELGwruzd03f.NnbNtQJKrIExBcBmp/mcv7yuilvZiQS', N'Avicennes', 1, 2)
 GO
-INSERT [dbo].[app_user] ([id], [password], [username], [validated], [account_type_type_id]) VALUES (43, N'$2a$10$uvd7rkqW3Sba/i8EKZEQ1OFWRzxsS1D1yXz5M5QobeIwObDpe5cxm', N'PCF', 1, 2)
+INSERT [dbo].[app_user] ([id], [password], [username], [validated], [account_type_type_id]) VALUES (43, N'$2a$10$vyq3PkzgzD/vRyTNbMeDMuqD2yszzXbpY/nZYupVUCwj5pmM7Z6OS', N'PCF', 1, 2)
 GO
 SET IDENTITY_INSERT [dbo].[app_user] OFF
 GO
@@ -294,15 +311,31 @@ INSERT [dbo].[hopital_specialites] ([hopital_id], [specialites_id]) VALUES (32, 
 GO
 SET IDENTITY_INSERT [dbo].[lit] ON 
 GO
-INSERT [dbo].[lit] ([lit_id], [hopital_id], [specid], [libre]) VALUES (24, 32, 66, 1)
+INSERT [dbo].[lit] ([lit_id], [hopital_id], [specid], [libre], [reserved]) VALUES (24, 32, 66, 1, 0)
 GO
-INSERT [dbo].[lit] ([lit_id], [hopital_id], [specid], [libre]) VALUES (25, 36, 66, 1)
+INSERT [dbo].[lit] ([lit_id], [hopital_id], [specid], [libre], [reserved]) VALUES (25, 36, 66, 1, 1)
 GO
-INSERT [dbo].[lit] ([lit_id], [hopital_id], [specid], [libre]) VALUES (26, 37, 66, 1)
+INSERT [dbo].[lit] ([lit_id], [hopital_id], [specid], [libre], [reserved]) VALUES (26, 37, 66, 1, 0)
 GO
-INSERT [dbo].[lit] ([lit_id], [hopital_id], [specid], [libre]) VALUES (27, 37, 66, 1)
+INSERT [dbo].[lit] ([lit_id], [hopital_id], [specid], [libre], [reserved]) VALUES (27, 37, 66, 1, 0)
+GO
+INSERT [dbo].[lit] ([lit_id], [hopital_id], [specid], [libre], [reserved]) VALUES (28, 36, 66, 1, 1)
+GO
+INSERT [dbo].[lit] ([lit_id], [hopital_id], [specid], [libre], [reserved]) VALUES (29, 36, 66, 1, 0)
+GO
+INSERT [dbo].[lit] ([lit_id], [hopital_id], [specid], [libre], [reserved]) VALUES (30, 36, 66, 1, 0)
+GO
+INSERT [dbo].[lit] ([lit_id], [hopital_id], [specid], [libre], [reserved]) VALUES (31, 36, 66, 1, 0)
 GO
 SET IDENTITY_INSERT [dbo].[lit] OFF
+GO
+SET IDENTITY_INSERT [dbo].[reservation] ON 
+GO
+INSERT [dbo].[reservation] ([reservationid], [patient_name], [hopital], [lit], [specialite]) VALUES (17, N'mohamad', 36, 25, 66)
+GO
+INSERT [dbo].[reservation] ([reservationid], [patient_name], [hopital], [lit], [specialite]) VALUES (18, N'mohamad', 36, 28, 66)
+GO
+SET IDENTITY_INSERT [dbo].[reservation] OFF
 GO
 SET IDENTITY_INSERT [dbo].[specialite] ON 
 GO
@@ -470,7 +503,7 @@ SET IDENTITY_INSERT [dbo].[specialite] OFF
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UK_mbxu7nn49jkyqh3x1s2wt1l3w]    Script Date: 12/10/2022 20:08:29 ******/
+/****** Object:  Index [UK_mbxu7nn49jkyqh3x1s2wt1l3w]    Script Date: 21/10/2022 10:44:25 ******/
 ALTER TABLE [dbo].[app_authorization] ADD  CONSTRAINT [UK_mbxu7nn49jkyqh3x1s2wt1l3w] UNIQUE NONCLUSTERED 
 (
 	[name] ASC
@@ -478,7 +511,7 @@ ALTER TABLE [dbo].[app_authorization] ADD  CONSTRAINT [UK_mbxu7nn49jkyqh3x1s2wt1
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UK_3k4cplvh82srueuttfkwnylq0]    Script Date: 12/10/2022 20:08:29 ******/
+/****** Object:  Index [UK_3k4cplvh82srueuttfkwnylq0]    Script Date: 21/10/2022 10:44:25 ******/
 ALTER TABLE [dbo].[app_user] ADD  CONSTRAINT [UK_3k4cplvh82srueuttfkwnylq0] UNIQUE NONCLUSTERED 
 (
 	[username] ASC
@@ -486,7 +519,7 @@ ALTER TABLE [dbo].[app_user] ADD  CONSTRAINT [UK_3k4cplvh82srueuttfkwnylq0] UNIQ
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UK_3gdppnywpdr0jqbrjddp810br]    Script Date: 12/10/2022 20:08:29 ******/
+/****** Object:  Index [UK_3gdppnywpdr0jqbrjddp810br]    Script Date: 21/10/2022 10:44:25 ******/
 ALTER TABLE [dbo].[groupe] ADD  CONSTRAINT [UK_3gdppnywpdr0jqbrjddp810br] UNIQUE NONCLUSTERED 
 (
 	[name] ASC
@@ -494,11 +527,13 @@ ALTER TABLE [dbo].[groupe] ADD  CONSTRAINT [UK_3gdppnywpdr0jqbrjddp810br] UNIQUE
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UK_f77doexyb2ha5xwjb9oy9wp0o]    Script Date: 12/10/2022 20:08:29 ******/
+/****** Object:  Index [UK_f77doexyb2ha5xwjb9oy9wp0o]    Script Date: 21/10/2022 10:44:25 ******/
 ALTER TABLE [dbo].[specialite] ADD  CONSTRAINT [UK_f77doexyb2ha5xwjb9oy9wp0o] UNIQUE NONCLUSTERED 
 (
 	[name] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[lit] ADD  CONSTRAINT [DF_lit_reserved]  DEFAULT ((0)) FOR [reserved]
 GO
 ALTER TABLE [dbo].[app_user]  WITH CHECK ADD  CONSTRAINT [FKpxn69iqjk39x6puud01iekkhe] FOREIGN KEY([account_type_type_id])
 REFERENCES [dbo].[account_type] ([type_id])
@@ -559,6 +594,21 @@ ALTER TABLE [dbo].[lits]  WITH CHECK ADD  CONSTRAINT [FKdvb10a1l8sfxdsko87ha67kl
 REFERENCES [dbo].[hopital] ([id])
 GO
 ALTER TABLE [dbo].[lits] CHECK CONSTRAINT [FKdvb10a1l8sfxdsko87ha67klj]
+GO
+ALTER TABLE [dbo].[reservation]  WITH CHECK ADD  CONSTRAINT [FKkk2ypcbvigxv02skogmkdyx09] FOREIGN KEY([hopital])
+REFERENCES [dbo].[hopital] ([id])
+GO
+ALTER TABLE [dbo].[reservation] CHECK CONSTRAINT [FKkk2ypcbvigxv02skogmkdyx09]
+GO
+ALTER TABLE [dbo].[reservation]  WITH CHECK ADD  CONSTRAINT [FKmww64py4w7ueioaxj4wsp6an6] FOREIGN KEY([lit])
+REFERENCES [dbo].[lit] ([lit_id])
+GO
+ALTER TABLE [dbo].[reservation] CHECK CONSTRAINT [FKmww64py4w7ueioaxj4wsp6an6]
+GO
+ALTER TABLE [dbo].[reservation]  WITH CHECK ADD  CONSTRAINT [FKqcsty2j3pyoa4urvi7xrqpkrg] FOREIGN KEY([specialite])
+REFERENCES [dbo].[specialite] ([id])
+GO
+ALTER TABLE [dbo].[reservation] CHECK CONSTRAINT [FKqcsty2j3pyoa4urvi7xrqpkrg]
 GO
 ALTER TABLE [dbo].[specialite]  WITH CHECK ADD  CONSTRAINT [FKgs78bdp5vqdyagt6vwb13bkea] FOREIGN KEY([groupeid])
 REFERENCES [dbo].[groupe] ([groupeid])
